@@ -1,0 +1,36 @@
+menu "ESP32-S3-N16R8 Application"
+
+    menu "WiFi Configuration"
+
+        config APP_WIFI_SSID
+            string "WiFi SSID"
+            default "myssid"
+            help
+                SSID (network name) for the board to connect to.
+
+        config APP_WIFI_PASSWORD
+            string "WiFi Password"
+            default "mypassword"
+            help
+                WiFi password (WPA/WPA2) for the board to connect to.
+
+        config APP_WIFI_RETRY_MAX
+            int "Maximum WiFi retry count"
+            default 5
+            help
+                Number of reconnection attempts before giving up.
+
+    endmenu
+
+    menu "HTTP Server Configuration"
+
+        config APP_HTTP_SERVER_PORT
+            int "HTTP server port"
+            default 80
+            range 1 65535
+            help
+                TCP port the built-in HTTP server listens on.
+
+    endmenu
+
+endmenu
