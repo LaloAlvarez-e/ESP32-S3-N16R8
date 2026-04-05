@@ -39,3 +39,15 @@
 
 # debug information files
 *.dwo
+
+# ESP-IDF build artifacts
+build/
+sdkconfig
+dependencies.lock
+
+# ESP-IDF managed components
+managed_components/
+
+# Host-based test build directory
+tests/build/
+tests/_deps/
