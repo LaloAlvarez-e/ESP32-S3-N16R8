@@ -1,0 +1,31 @@
+{
+  "files.associations": {
+    "sdkconfig": "properties",
+    "sdkconfig.defaults": "properties"
+  },
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+  "esp32Project.idfPath": "C:\\esp\\v6.0\\esp-idf",
+  "esp32Project.helloWorldPath": "hello_world_project",
+  "esp32Project.helloWorldDebugStartupHoldMs": "10000",
+  "esp32Project.sampleProjectPath": "sample_project",
+  "esp32Project.serialPort": "AUTO",
+  "esp32Project.flashBaudRate": "460800",
+  "esp32Project.openOcdPath": "C:\\Users\\avala\\.espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20251215\\openocd-esp32\\bin\\openocd.exe",
+  "esp32Project.openOcdScripts": "C:\\Users\\avala\\.espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20251215\\openocd-esp32\\share\\openocd\\scripts",
+  "esp32Project.openOcdConfig": "board/esp32s3-builtin.cfg",
+  "esp32Project.openOcdAdapterSpeedKHz": "5000",
+  "esp32Project.gdbPath": "C:\\Users\\avala\\.espressif\\tools\\xtensa-esp-elf-gdb\\16.3_20250913\\xtensa-esp-elf-gdb\\bin\\xtensa-esp32s3-elf-gdb.exe",
+  "idf.currentSetup": "C:\\esp\\v6.0\\esp-idf",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+  "idf.svdFilePath": "${workspaceFolder}/.vscode/svd/esp32s3.svd",
+  "debug.openDisassembly": "auto",
+  "debug.disassemblyView.showSourceCode": true,
+  "isort.interpreter": [
+    "C:\\Users\\avala\\scoop\\apps\\python313\\current\\python.exe"
+  ],
+  "python-envs.defaultEnvManager": "ms-python.python:system"
+}

@@ -1,0 +1,437 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ESP32: List Serial Ports",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/list-serial-ports.ps1"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Build Hello World",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DHELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS=0",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Build Hello World (Debug Hold)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DHELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS=${config:esp32Project.helloWorldDebugStartupHoldMs}",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Flash Hello World",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "-Baud",
+        "${config:esp32Project.flashBaudRate}",
+        "flash"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Monitor Hello World",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "monitor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Build Sample Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Flash Sample Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "-Baud",
+        "${config:esp32Project.flashBaudRate}",
+        "flash"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Monitor Sample Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "monitor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: OpenOCD Server",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/start-openocd.ps1",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-OpenOcdPath",
+        "${config:esp32Project.openOcdPath}",
+        "-OpenOcdScripts",
+        "${config:esp32Project.openOcdScripts}",
+        "-AdapterSpeedKHz",
+        "${config:esp32Project.openOcdAdapterSpeedKHz}",
+        "-OpenOcdConfig",
+        "${config:esp32Project.openOcdConfig}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated"
+      },
+      "problemMatcher": {
+        "owner": "esp32-openocd",
+        "pattern": {
+          "regexp": "^(Error: .*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^(Activating ESP-IDF|Open On-Chip Debugger)",
+          "endsPattern": "Listening on port 3333 for gdb connections"
+        }
+      }
+    },
+    {
+      "label": "ESP32: OpenOCD Server (Live Attach)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/start-openocd.ps1",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-OpenOcdPath",
+        "${config:esp32Project.openOcdPath}",
+        "-OpenOcdScripts",
+        "${config:esp32Project.openOcdScripts}",
+        "-AdapterSpeedKHz",
+        "${config:esp32Project.openOcdAdapterSpeedKHz}",
+        "-OpenOcdConfig",
+        "${config:esp32Project.openOcdConfig}",
+        "-ResumeTargetAfterStartup"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated"
+      },
+      "problemMatcher": {
+        "owner": "esp32-openocd",
+        "pattern": {
+          "regexp": "^(Error: .*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^(Activating ESP-IDF|Open On-Chip Debugger)",
+          "endsPattern": "^ESP32_LIVE_ATTACH_READY$"
+        }
+      }
+    },
+    {
+      "label": "ESP32: Prepare Hello World Debug",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Hello World (Debug Hold)",
+        "ESP32: OpenOCD Server"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Prepare Hello World Live Attach",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Hello World",
+        "ESP32: OpenOCD Server (Live Attach)"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Prepare Sample Project Debug",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Sample Project",
+        "ESP32: OpenOCD Server"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Prepare Sample Project Live Attach",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Sample Project",
+        "ESP32: OpenOCD Server (Live Attach)"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Load Hello World ELF",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/load-elf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-GdbPath",
+        "${config:esp32Project.gdbPath}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Load Sample Project ELF",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/load-elf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-GdbPath",
+        "${config:esp32Project.gdbPath}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Build Custom Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${input:esp32CustomTaskProjectRelativePath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Flash Custom Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${input:esp32CustomTaskProjectRelativePath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "-Baud",
+        "${config:esp32Project.flashBaudRate}",
+        "flash"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Monitor Custom Project",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/esp32/invoke-idf.ps1",
+        "-ProjectDir",
+        "${workspaceFolder}/${input:esp32CustomTaskProjectRelativePath}",
+        "-IdfPath",
+        "${config:esp32Project.idfPath}",
+        "-Port",
+        "${config:esp32Project.serialPort}",
+        "monitor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Prepare Custom Project Debug",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Custom Project",
+        "ESP32: OpenOCD Server"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32: Prepare Custom Project Live Attach",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32: Build Custom Project",
+        "ESP32: OpenOCD Server (Live Attach)"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "esp32CustomTaskProjectRelativePath",
+      "type": "promptString",
+      "description": "Workspace-relative ESP-IDF project folder",
+      "default": "my_new_project"
+    }
+  ]
+}

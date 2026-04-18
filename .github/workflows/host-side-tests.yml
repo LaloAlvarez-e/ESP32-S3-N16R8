@@ -1,0 +1,50 @@
+name: Host-Side Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  host-side-tests:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: windows-msvc-release
+            os: windows-latest
+            generator: Visual Studio 17 2022
+            architecture: x64
+            build_type: Release
+
+    defaults:
+      run:
+        shell: pwsh
+
+    env:
+      BUILD_DIR: ${{ github.workspace }}/build/host-tests
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure host-side tests
+        run: >-
+          cmake -S . -B "${env:BUILD_DIR}" -G "${{ matrix.generator }}"
+          -A "${{ matrix.architecture }}" -DBUILD_TESTING=ON
+
+      - name: Build host-side tests
+        run: >-
+          cmake --build "${env:BUILD_DIR}" --config "${{ matrix.build_type }}"
+          --parallel
+
+      - name: Run host-side tests
+        run: >-
+          ctest --test-dir "${env:BUILD_DIR}" -C "${{ matrix.build_type }}"
+          --output-on-failure

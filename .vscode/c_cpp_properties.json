@@ -1,0 +1,70 @@
+{
+  "env": {
+    "ESP_IDF_PATH": "C:/esp/v6.0/esp-idf"
+  },
+  "configurations": [
+    {
+      "name": "ESP32S3 Hello World Project",
+      "compileCommands": "${workspaceFolder}/hello_world_project/build/compile_commands.json",
+      "includePath": [
+        "${workspaceFolder}/hello_world_project/**",
+        "${workspaceFolder}/hello_world_project/build/config/**",
+        "${workspaceFolder}/common_utils/**",
+        "${workspaceFolder}/common_os/**",
+        "${workspaceFolder}/common_driver/**",
+        "${ESP_IDF_PATH}/components/**"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/hello_world_project",
+          "${workspaceFolder}/hello_world_project/build/config",
+          "${workspaceFolder}/common_utils",
+          "${workspaceFolder}/common_os",
+          "${workspaceFolder}/common_driver",
+          "${ESP_IDF_PATH}/components"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "defines": [
+        "ESP_PLATFORM",
+        "IDF_TARGET=esp32s3",
+        "IDF_TARGET_ESP32S3=1"
+      ],
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64"
+    },
+    {
+      "name": "ESP32S3 Sample Project",
+      "compileCommands": "${workspaceFolder}/sample_project/build/compile_commands.json",
+      "includePath": [
+        "${workspaceFolder}/sample_project/**",
+        "${workspaceFolder}/sample_project/build/config/**",
+        "${workspaceFolder}/common_utils/**",
+        "${workspaceFolder}/common_os/**",
+        "${workspaceFolder}/common_driver/**",
+        "${ESP_IDF_PATH}/components/**"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/sample_project",
+          "${workspaceFolder}/sample_project/build/config",
+          "${workspaceFolder}/common_utils",
+          "${workspaceFolder}/common_os",
+          "${workspaceFolder}/common_driver",
+          "${ESP_IDF_PATH}/components"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "defines": [
+        "ESP_PLATFORM",
+        "IDF_TARGET=esp32s3",
+        "IDF_TARGET_ESP32S3=1"
+      ],
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64"
+    }
+  ],
+  "version": 4
+}

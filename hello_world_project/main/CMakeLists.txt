@@ -1,0 +1,15 @@
+if(NOT DEFINED HELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS)
+    set(HELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS "0")
+endif()
+
+idf_component_register(
+    SRCS
+        main.c
+    INCLUDE_DIRS
+        .
+)
+
+target_compile_definitions(${COMPONENT_LIB}
+    PRIVATE
+        HELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS=${HELLO_WORLD_PROJECT_DEBUG_STARTUP_HOLD_MS}
+)

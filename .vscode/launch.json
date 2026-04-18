@@ -1,0 +1,293 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ESP32S3: Hello World (Recommended Attach Running Firmware)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.helloWorldPath}/build/hello_world_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "preLaunchTask": "ESP32: Prepare Hello World Live Attach",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Hello World (Connect To Existing OpenOCD)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.helloWorldPath}/build/hello_world_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "openGdbConsole": true,
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Hello World (Reset And Load)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.helloWorldPath}/build/hello_world_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt",
+        "load"
+      ],
+      "initialBreakpoint": "app_main",
+      "preLaunchTask": "ESP32: Prepare Hello World Debug",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Hello World (Manual OpenOCD)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.helloWorldPath}/build/hello_world_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.helloWorldPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt",
+        "load"
+      ],
+      "initialBreakpoint": "app_main",
+      "preLaunchTask": "ESP32: Build Hello World",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Sample Project (Attach Running Firmware)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}/build/sample_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "preLaunchTask": "ESP32: Prepare Sample Project Live Attach",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Sample Project (Connect To Existing OpenOCD)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}/build/sample_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "openGdbConsole": true,
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Sample Project (Reset And Load)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}/build/sample_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt",
+        "load"
+      ],
+      "initialBreakpoint": "app_main",
+      "preLaunchTask": "ESP32: Prepare Sample Project Debug",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Sample Project (Manual OpenOCD)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}/build/sample_project.elf",
+      "cwd": "${workspaceFolder}/${config:esp32Project.sampleProjectPath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt",
+        "load"
+      ],
+      "initialBreakpoint": "app_main",
+      "preLaunchTask": "ESP32: Build Sample Project",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Custom Project (Attach Running Firmware)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}/build/${input:esp32CustomElfFileName}",
+      "cwd": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "preLaunchTask": "ESP32: Prepare Custom Project Live Attach",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Custom Project (Connect To Existing OpenOCD)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}/build/${input:esp32CustomElfFileName}",
+      "cwd": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor halt"
+      ],
+      "initialBreakpoint": "",
+      "openGdbConsole": true,
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Custom Project (Reset And Load)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}/build/${input:esp32CustomElfFileName}",
+      "cwd": "${workspaceFolder}/${input:esp32CustomProjectRelativePath}",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": false,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt",
+        "load"
+      ],
+      "initialBreakpoint": "${input:esp32CustomBreakpointSymbol}",
+      "preLaunchTask": "ESP32: Prepare Custom Project Debug",
+      "gdbAsync": true
+    },
+    {
+      "name": "ESP32S3: Template Project (Copy And Rename)",
+      "type": "gdbtarget",
+      "request": "attach",
+      "program": "${workspaceFolder}/template_project/build/template_project.elf",
+      "cwd": "${workspaceFolder}/template_project",
+      "gdb": "${config:esp32Project.gdbPath}",
+      "runOpenOCD": true,
+      "target": {
+        "type": "extended-remote",
+        "host": "localhost",
+        "port": "3333"
+      },
+      "initCommands": [
+        "set pagination off",
+        "set remotetimeout 10",
+        "monitor reset halt"
+      ],
+      "initialBreakpoint": "app_main",
+      "gdbAsync": true
+    }
+  ],
+  "inputs": [
+    {
+      "id": "esp32CustomProjectRelativePath",
+      "type": "promptString",
+      "description": "Workspace-relative ESP-IDF project folder",
+      "default": "my_new_project"
+    },
+    {
+      "id": "esp32CustomElfFileName",
+      "type": "promptString",
+      "description": "ELF file name inside the build folder",
+      "default": "my_new_project.elf"
+    },
+    {
+      "id": "esp32CustomBreakpointSymbol",
+      "type": "promptString",
+      "description": "Breakpoint symbol after reset",
+      "default": "app_main"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+idf_component_register(
+    SRCS
+        ../main.c
+        ../app_core/app_core.c
+        ../app_core/telemetry/telemetry.c
+        ../app_support/app_support.c
+    INCLUDE_DIRS
+        ..
+    REQUIRES
+        common_utils
+        common_os
+        common_driver
+)

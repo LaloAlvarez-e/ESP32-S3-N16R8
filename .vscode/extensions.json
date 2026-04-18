@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "espressif.esp-idf-extension",
+    "ms-vscode.cpptools",
+    "ms-vscode.hexeditor"
+  ],
+  "unwantedRecommendations": [
+    "platformio.platformio-ide"
+  ]
+}

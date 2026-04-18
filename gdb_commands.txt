@@ -1,0 +1,10 @@
+set pagination off
+set remotetimeout 20
+target extended-remote localhost:3333
+monitor reset halt
+thbreak app_main
+continue
+frame
+bt
+p $pc
+quit

@@ -1,4 +1,9 @@
 # Prerequisites
+/build/
+**/build/
+**/managed_components/
+**/sdkconfig
+**/sdkconfig.old
 *.d
 
 # Compiled Object files
